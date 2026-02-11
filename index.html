@@ -1003,14 +1003,13 @@
 
     /* === HERO SECTION === */
     .hero {
-      min-height: 100vh;
-      min-height: 100svh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
       text-align: center;
-      padding: var(--space-6);
+      padding: 100px var(--space-6) 80px;
       overflow: hidden;
       background: var(--color-bg-base);
     }
@@ -1021,16 +1020,13 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: var(--gradient-hero);
-      background-size: 200% 200%;
-      animation: heroGlow 8s ease-in-out infinite;
+      background: radial-gradient(
+        ellipse at 50% 65%,
+        rgba(230, 57, 70, 0.18) 0%,
+        rgba(10, 10, 10, 0.95) 55%,
+        #0A0A0A 100%
+      );
       z-index: 0;
-    }
-
-    @keyframes heroGlow {
-      0% { background-position: 50% 60%; opacity: 0.8; }
-      50% { background-position: 50% 55%; opacity: 1; }
-      100% { background-position: 50% 60%; opacity: 0.8; }
     }
 
     .hero__content {
@@ -1040,120 +1036,151 @@
       width: 100%;
     }
 
-    .hero__brand {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.6);
-      letter-spacing: var(--letter-spacing-wide);
-      margin-bottom: var(--space-3);
-      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0s both;
-    }
-
     @keyframes heroFadeInUp {
       0% { opacity: 0; transform: translateY(24px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
     .hero__title-main {
-      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-size: clamp(2.5rem, 8vw, 5rem);
       font-weight: 900;
       line-height: 1.05;
       letter-spacing: -0.02em;
       color: var(--color-text-primary);
       text-shadow: 0 0 60px rgba(255, 45, 45, 0.3), 0 2px 4px rgba(0, 0, 0, 0.5);
-      margin-bottom: var(--space-6);
-      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.1s both;
+      margin-bottom: var(--space-5);
+      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0s both;
     }
 
     .hero__tagline {
-      font-size: clamp(1.25rem, 3vw, 2rem);
-      font-weight: 700;
+      font-size: clamp(0.9rem, 2.5vw, 1.125rem);
+      font-weight: 500;
       color: var(--color-text-secondary);
-      margin-bottom: var(--space-4);
-      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.25s both;
-    }
-
-    @keyframes numberPulse {
-      0%, 100% { text-shadow: 0 0 20px rgba(255, 45, 45, 0.5); }
-      50% { text-shadow: 0 0 40px rgba(255, 45, 45, 0.8), 0 0 80px rgba(255, 45, 45, 0.3); }
-    }
-
-    .hero__number-highlight {
-      color: var(--color-accent-500);
-      font-weight: 900;
-      animation: numberPulse 2s ease-in-out infinite;
-    }
-
-    .hero__subheadline {
-      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.35s both;
-      color: var(--color-text-muted);
-      font-size: 1rem;
-      margin-bottom: var(--space-8);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--space-7);
+      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.15s both;
     }
 
     .hero__cta {
+      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.3s both;
+    }
+
+    /* Flame Visual */
+    .hero__flame-visual {
+      position: relative;
+      width: 240px;
+      height: 320px;
+      margin: var(--space-9) auto var(--space-7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
       animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.45s both;
     }
 
-    .hero__particle {
+    .hero__flame-glow {
       position: absolute;
-      width: 4px;
-      height: 4px;
-      background: var(--color-accent-500);
-      border-radius: 50%;
-      box-shadow: 0 0 6px var(--color-accent-500), 0 0 12px rgba(255, 45, 45, 0.5);
-      animation: fireParticle 3s ease-out infinite;
+      width: 380px;
+      height: 380px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255, 120, 50, 0.3) 0%, rgba(255, 60, 30, 0.12) 40%, transparent 70%);
+      animation: flameGlowPulse 3s ease-in-out infinite;
       pointer-events: none;
     }
 
-    @keyframes fireParticle {
-      0% { opacity: 0; transform: translateY(0) scale(1); }
-      20% { opacity: 1; }
-      100% { opacity: 0; transform: translateY(-200px) scale(0); }
-    }
-
-    .hero__particle:nth-child(1) { left: 10%; bottom: 20%; animation-delay: 0s; animation-duration: 2.5s; }
-    .hero__particle:nth-child(2) { left: 25%; bottom: 10%; animation-delay: 0.5s; animation-duration: 3s; }
-    .hero__particle:nth-child(3) { left: 50%; bottom: 15%; animation-delay: 1s; animation-duration: 2.8s; }
-    .hero__particle:nth-child(4) { left: 70%; bottom: 25%; animation-delay: 0.3s; animation-duration: 3.2s; }
-    .hero__particle:nth-child(5) { left: 85%; bottom: 12%; animation-delay: 0.8s; animation-duration: 2.6s; }
-    .hero__particle:nth-child(6) { left: 40%; bottom: 8%; animation-delay: 1.5s; animation-duration: 2.9s; }
-    .hero__particle:nth-child(7) { left: 60%; bottom: 18%; animation-delay: 0.2s; animation-duration: 3.1s; }
-    .hero__particle:nth-child(8) { left: 15%; bottom: 5%; animation-delay: 1.2s; animation-duration: 2.7s; }
-
-    @keyframes scrollBounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
-    }
-
-    .hero__scroll-indicator {
+    .hero__flame-shape {
       position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--color-text-muted);
-      font-size: 1.5rem;
-      animation: scrollBounce 2s ease-in-out infinite;
-      opacity: 0.5;
+      width: 190px;
+      height: 260px;
+      border-radius: 45% 45% 50% 50% / 30% 30% 65% 65%;
+      background:
+        radial-gradient(ellipse at 50% 65%,
+          rgba(255, 160, 60, 0.85) 0%,
+          rgba(255, 100, 40, 0.7) 20%,
+          rgba(230, 57, 70, 0.6) 40%,
+          rgba(180, 30, 30, 0.4) 65%,
+          rgba(100, 10, 10, 0.15) 85%,
+          transparent 100%
+        );
+      box-shadow:
+        0 0 60px rgba(255, 100, 50, 0.3),
+        0 0 120px rgba(255, 60, 30, 0.15),
+        inset 0 -30px 60px rgba(255, 140, 60, 0.15);
+      animation: flameShapePulse 3s ease-in-out infinite;
+    }
+
+    .hero__flame-number {
+      position: relative;
       z-index: 2;
-      cursor: pointer;
-      background: none;
-      border: none;
+      font-size: clamp(3.5rem, 14vw, 5rem);
+      font-weight: 900;
+      color: #FFFFFF;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 255, 255, 0.1);
+      letter-spacing: 0.03em;
+    }
+
+    @keyframes flameGlowPulse {
+      0%, 100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.08);
+      }
+    }
+
+    @keyframes flameShapePulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 60px rgba(255, 100, 50, 0.3), 0 0 120px rgba(255, 60, 30, 0.15);
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 80px rgba(255, 100, 50, 0.4), 0 0 160px rgba(255, 60, 30, 0.2);
+      }
+    }
+
+    /* Bottom Text */
+    .hero__bottom-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.6s both;
+    }
+
+    .hero__bottom-title {
+      font-size: clamp(1.125rem, 3.5vw, 1.5rem);
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .hero__bottom-sub {
+      font-size: clamp(0.875rem, 2.5vw, 1rem);
+      color: var(--color-text-secondary);
     }
 
     @media (max-width: 767px) {
-      .hero__brand { font-size: 0.75rem; }
-      .hero { padding: var(--space-6) var(--space-6); }
+      .hero {
+        padding: 80px var(--space-5) 60px;
+      }
       .hero__title-main {
         font-size: clamp(1.75rem, 8vw, 2.75rem);
       }
-      .hero__subheadline {
-        font-size: 0.9rem;
-        padding: 0 var(--space-2);
+      .hero__flame-visual {
+        width: 200px;
+        height: 270px;
+        margin: var(--space-8) auto var(--space-6);
+      }
+      .hero__flame-shape {
+        width: 160px;
+        height: 220px;
+      }
+      .hero__flame-glow {
+        width: 300px;
+        height: 300px;
       }
     }
 
@@ -1382,7 +1409,8 @@
         transform: none;
       }
 
-      .hero__title-main, .hero__tagline, .hero__subheadline, .hero__cta {
+      .hero__title-main, .hero__tagline, .hero__cta,
+      .hero__flame-visual, .hero__flame-glow, .hero__flame-shape, .hero__bottom-text {
         animation: none;
         opacity: 1;
         transform: none;
@@ -1405,26 +1433,25 @@
   <!-- ==================== HERO ==================== -->
   <section class="hero" id="hero" aria-label="Burning 100 Challenge 히어로">
     <div class="hero__background" aria-hidden="true"></div>
-    <div class="hero__particle" aria-hidden="true"></div>
-    <div class="hero__particle" aria-hidden="true"></div>
-    <div class="hero__particle" aria-hidden="true"></div>
-    <div class="hero__particle" aria-hidden="true"></div>
-    <div class="hero__particle" aria-hidden="true"></div>
-    <div class="hero__particle" aria-hidden="true"></div>
-    <div class="hero__particle" aria-hidden="true"></div>
-    <div class="hero__particle" aria-hidden="true"></div>
 
     <div class="hero__content">
-      <p class="hero__brand">에이블짐 교대역점</p>
       <h1 class="hero__title-main">BURNING 100<br>CHALLENGE</h1>
-      <p class="hero__tagline">지방 <span class="hero__number-highlight">100g</span>을 태워라.</p>
-      <p class="hero__subheadline">매주 도전. 매주 보상. 달성하면 전원 상품 지급.</p>
+      <p class="hero__tagline">매주 지방 100g 태워지면 도전하세요</p>
       <div class="hero__cta">
-        <a href="#registration" class="btn btn--primary btn--lg btn--pulse" role="button">지금 도전 신청하기</a>
+        <a href="#registration" class="btn btn--primary btn--lg btn--pulse" role="button">챌린지 참가하기</a>
       </div>
     </div>
 
-    <button class="hero__scroll-indicator" aria-label="아래로 스크롤" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">&#9660;</button>
+    <div class="hero__flame-visual" aria-hidden="true">
+      <div class="hero__flame-glow"></div>
+      <div class="hero__flame-shape"></div>
+      <span class="hero__flame-number">100G</span>
+    </div>
+
+    <div class="hero__bottom-text">
+      <p class="hero__bottom-title"><span class="text-accent">매주 지방 100g</span> 태우기</p>
+      <p class="hero__bottom-sub">달성하고 보상을 받아보세요!</p>
+    </div>
   </section>
 
   <!-- ==================== ABOUT ==================== -->
