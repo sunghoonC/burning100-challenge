@@ -12,7 +12,7 @@
   <meta name="author" content="에이블짐 교대역점">
   <link rel="canonical" href="https://example.com/burning100">
 
-  <!-- Open Graph 태그 (SNS 공유용) -->
+  <!-- Open Graph 태그 -->
   <meta property="og:title" content="Burning 100 Challenge | 매주 지방 100g을 태워라">
   <meta property="og:description" content="에이블짐 교대역점 유산소존에서 뉴마핏 심박계로 지방 연소 측정! 100g 달성 시 전원 상품 지급, 추첨으로 고가 상품까지.">
   <meta property="og:type" content="website">
@@ -29,7 +29,6 @@
   <meta name="twitter:title" content="Burning 100 Challenge | 매주 지방 100g을 태워라">
   <meta name="twitter:description" content="에이블짐 교대역점에서 뉴마핏 심박계로 지방 연소 측정! 100g 달성 시 전원 상품 지급.">
   <meta name="twitter:image" content="https://example.com/burning100/og-image.jpg">
-  <meta name="twitter:image:alt" content="Burning 100 Challenge - 에이블짐 교대역점 지방연소 챌린지">
 
   <!-- 구조화 데이터 (JSON-LD) -->
   <script type="application/ld+json">
@@ -44,11 +43,6 @@
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "startDate": "2026-01-01",
     "endDate": "2026-12-31",
-    "eventSchedule": {
-      "@type": "Schedule",
-      "repeatFrequency": "P1W",
-      "byDay": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    },
     "location": {
       "@type": "Place",
       "name": "에이블짐 교대역점",
@@ -62,8 +56,7 @@
     },
     "organizer": {
       "@type": "Organization",
-      "name": "에이블짐 교대역점",
-      "url": "https://example.com/burning100"
+      "name": "에이블짐 교대역점"
     },
     "offers": {
       "@type": "Offer",
@@ -71,116 +64,54 @@
       "priceCurrency": "KRW",
       "availability": "https://schema.org/InStock",
       "description": "무료 참가 신청 (에이블짐 회원 대상)"
-    },
-    "performer": {
-      "@type": "Organization",
-      "name": "에이블짐 교대역점"
-    },
-    "inLanguage": "ko"
+    }
   }
   </script>
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/moderniz" rel="stylesheet">
+
   <style>
+    /* ============================== FONTS ============================== */
+    @font-face {
+      font-family: 'KIMM_Bold';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ============================== VARIABLES ============================== */
     :root {
-      --color-primary-900: #0A0A0A;
-      --color-primary-800: #141414;
-      --color-primary-700: #1A1A1A;
+      --color-bg: #111111;
+      --color-white: #FFFFFF;
+      --color-gray: #888888;
+      --color-gray-border: #5a5a5a;
+      --color-red: #f40000;
+      --color-red-deep: #f10000;
+      --color-red-dark: #3e0000;
+      --color-orange: #ff9800;
+      --color-gold-light: #ffe767;
+      --color-gold: #ffb548;
+      --color-card-bg: rgba(41, 0, 0, 0.5);
+      --color-card-bg-alt: #111111;
 
-      --color-accent-500: #FF2D2D;
-      --color-accent-600: #E63946;
-      --color-accent-400: #FF6B6B;
-
-      --color-gray-800: #2D2D2D;
-      --color-gray-700: #3D3D3D;
-      --color-gray-600: #4A4A4A;
-      --color-gray-500: #6B6B6B;
-
-      --color-text-primary: #FFFFFF;
-      --color-text-secondary: #CCCCCC;
-      --color-text-muted: #B0B0B0;
-      --color-text-disabled: #666666;
-      --color-text-accent: #FF2D2D;
-
-      --color-bg-base: #0A0A0A;
-      --color-bg-section: #141414;
-      --color-bg-card: #1A1A1A;
-      --color-bg-card-hover: #222222;
-      --color-bg-input: #1A1A1A;
-      --color-bg-overlay: rgba(10, 10, 10, 0.85);
-
-      --color-success: #00C853;
-      --color-error: #FF2D2D;
-      --color-warning: #FFB300;
-
-      --gradient-hero: radial-gradient(
-        ellipse at 50% 60%,
-        rgba(230, 57, 70, 0.25) 0%,
-        rgba(10, 10, 10, 0.95) 55%,
-        #0A0A0A 100%
-      );
-      --gradient-button: linear-gradient(135deg, #FF2D2D 0%, #E63946 100%);
-      --gradient-button-hover: linear-gradient(135deg, #FF4545 0%, #FF2D2D 100%);
-      --gradient-glow: radial-gradient(circle at center, rgba(255, 45, 45, 0.2) 0%, transparent 70%);
-      --gradient-text-fire: linear-gradient(180deg, #FFFFFF 0%, #FF6B6B 50%, #FF2D2D 100%);
-      --gradient-border: linear-gradient(135deg, #FF2D2D 0%, #E63946 50%, #FF6B6B 100%);
-
-      --font-primary: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-
-      --line-height-tight: 1.2;
-      --line-height-normal: 1.5;
-      --line-height-relaxed: 1.7;
-
-      --letter-spacing-tight: -0.02em;
-      --letter-spacing-normal: 0;
-      --letter-spacing-wide: 0.05em;
-
-      --container-max-width: 1200px;
-      --container-padding: 0 24px;
-
-      --section-padding-desktop: 120px 0;
-      --section-padding-tablet: 80px 0;
-      --section-padding-mobile: 60px 0;
-
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 20px;
-      --space-6: 24px;
-      --space-7: 32px;
-      --space-8: 40px;
-      --space-9: 48px;
-      --space-10: 56px;
-      --space-11: 64px;
-      --space-12: 80px;
-
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-      --radius-full: 9999px;
-
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-      --shadow-glow: 0 0 20px rgba(255, 45, 45, 0.3);
-      --shadow-glow-strong: 0 0 40px rgba(255, 45, 45, 0.4), 0 0 80px rgba(255, 45, 45, 0.15);
+      --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+      --font-moderniz: 'MODERNIZ', sans-serif;
+      --font-kimm: 'KIMM_Bold', sans-serif;
+      --font-body: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', sans-serif;
 
       --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
       --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-
-      --duration-fast: 150ms;
-      --duration-normal: 300ms;
-      --duration-slow: 500ms;
-      --duration-slower: 800ms;
     }
 
-    /* === RESET & BASE === */
+    /* ============================== RESET ============================== */
     *, *::before, *::after {
       margin: 0;
       padding: 0;
@@ -192,282 +123,804 @@
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      font-family: var(--font-primary);
-      background-color: var(--color-bg-base);
-      color: var(--color-text-secondary);
-      line-height: var(--line-height-relaxed);
       overflow-x: hidden;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-white);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font-family: inherit;
-      cursor: pointer;
-    }
-
-    input, textarea {
-      font-family: inherit;
-    }
-
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--color-bg-base); }
-    ::-webkit-scrollbar-thumb { background: var(--color-gray-700); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--color-gray-600); }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    input { font-family: inherit; }
 
     *:focus-visible {
-      outline: 2px solid var(--color-accent-500);
+      outline: 2px solid var(--color-red);
       outline-offset: 2px;
     }
 
     ::selection {
-      background: rgba(255, 45, 45, 0.3);
-      color: var(--color-text-primary);
+      background: rgba(244, 0, 0, 0.3);
+      color: var(--color-white);
     }
 
-    /* === TYPOGRAPHY === */
-    h1 {
-      font-family: var(--font-primary);
-      font-size: 3.5rem;
-      font-weight: 900;
-      line-height: var(--line-height-tight);
-      letter-spacing: var(--letter-spacing-tight);
-      color: var(--color-text-primary);
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
     }
 
-    h2 {
-      font-family: var(--font-primary);
-      font-size: 2.5rem;
-      font-weight: 800;
-      line-height: var(--line-height-tight);
-      letter-spacing: var(--letter-spacing-tight);
-      color: var(--color-text-primary);
-    }
-
-    h3 {
-      font-family: var(--font-primary);
-      font-size: 1.5rem;
-      font-weight: 700;
-      line-height: var(--line-height-normal);
-      letter-spacing: var(--letter-spacing-normal);
-      color: var(--color-text-primary);
-    }
-
-    h4 {
-      font-family: var(--font-primary);
-      font-size: 1.25rem;
-      font-weight: 700;
-      line-height: var(--line-height-normal);
-      letter-spacing: var(--letter-spacing-normal);
-      color: var(--color-text-primary);
-    }
-
-    .text-accent { color: var(--color-accent-500); }
-
-    .text-glow {
-      text-shadow: 0 0 20px rgba(255, 45, 45, 0.5),
-                   0 0 40px rgba(255, 45, 45, 0.2);
-    }
-
-    /* === LAYOUT === */
-    .container {
-      width: 100%;
-      max-width: var(--container-max-width);
-      margin: 0 auto;
-      padding: var(--container-padding);
-    }
-
-    .container--narrow { max-width: 640px; }
-
-    .section {
-      padding: var(--section-padding-desktop);
+    /* ============================== HERO ============================== */
+    .hero {
       position: relative;
+      width: 100%;
+      aspect-ratio: 393 / 556;
+      max-height: 100svh;
+      overflow: hidden;
+      background: #FF0000;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background: url('design/bg_image.png') center top / cover no-repeat;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to bottom, transparent 0%, var(--color-bg) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 44%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      width: 86%;
+      max-width: 400px;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .hero__title-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero__title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero__title {
+      font-family: var(--font-moderniz);
+      font-size: clamp(28px, 9vw, 42px);
+      font-weight: 400;
+      line-height: 1;
+      color: var(--color-white);
+      animation: fadeInUp 0.7s var(--ease-out-expo) 0s both;
+    }
+
+    .hero__title-100 {
+      display: flex;
+      align-items: center;
+      height: clamp(24px, 7.8vw, 33px);
+      animation: fadeInUp 0.7s var(--ease-out-expo) 0.05s both;
+    }
+
+    .hero__title-100 svg {
+      height: 100%;
+      width: auto;
+      display: block;
+    }
+
+    .hero__title-sub {
+      font-family: var(--font-moderniz);
+      font-size: clamp(28px, 9vw, 42px);
+      font-weight: 400;
+      line-height: 1;
+      color: var(--color-white);
+      text-transform: uppercase;
+      animation: fadeInUp 0.7s var(--ease-out-expo) 0.1s both;
+    }
+
+    .hero__tagline {
+      font-family: var(--font-kimm);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-white);
+      animation: fadeInUp 0.7s var(--ease-out-expo) 0.2s both;
+    }
+
+    /* ============================== CONTENT WRAPPER ============================== */
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 120px 40px;
+      gap: 120px;
+      position: relative;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .content__glow {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(171, 2, 0, 1) 0%, rgba(94, 9, 9, 0.6) 30%, rgba(17, 17, 17, 1) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .content > section {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    /* ============================== 100G ILLUSTRATION ============================== */
+    .section-100g {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .flame-wrapper {
+      position: relative;
+      width: 252px;
+      height: 297px;
+    }
+
+    .flame-body {
+      position: absolute;
+      top: 107px;
+      left: 12px;
+      width: 230px;
+      height: 189px;
+      background: var(--color-orange);
+      border-radius: 11px 26px 14px 14px;
+      box-shadow:
+        inset 0 -10px 10px rgba(255, 0, 0, 0.45),
+        inset 0 -40px 40px rgba(255, 106, 0, 0.45);
+    }
+
+    .flame-sparks {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .flame-spark {
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .flame-spark:nth-child(1) { width: 65px; height: 65px; left: 76px; top: 85px; background: #FF9800; }
+    .flame-spark:nth-child(2) { width: 73px; height: 73px; left: 15px; top: 74px; background: linear-gradient(to top, #FF9800, #FFBD5A); }
+    .flame-spark:nth-child(3) { width: 73px; height: 73px; left: 115px; top: 54px; background: linear-gradient(to top, #FF9800, #FFBD5A); }
+    .flame-spark:nth-child(4) { width: 73px; height: 73px; left: 169px; top: 81px; background: linear-gradient(to top, #FF9800, #FFBD5A); }
+    .flame-spark:nth-child(5) { width: 65px; height: 65px; left: 58px; top: 0; background: linear-gradient(to top, #FF9800, #FFBD5A); }
+
+    .beaker-outline {
+      position: absolute;
+      left: 4px;
+      top: 53px;
+      width: 248px;
+      height: 244px;
+      z-index: 1;
+    }
+
+    .flame-text {
+      position: absolute;
+      top: 221px;
+      left: 127px;
+      transform: translateX(-50%);
+      font-family: var(--font-moderniz);
+      font-size: 50px;
+      font-weight: 400;
+      color: var(--color-gold);
+      line-height: 1.4;
+      z-index: 2;
+    }
+
+    .section-100g__text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .text-gradient-gold {
+      font-size: 25px;
+      font-weight: 800;
+      background: linear-gradient(to right, var(--color-gold-light), var(--color-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.4;
+    }
+
+    .section-100g__subtitle {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-white);
+      line-height: 1.4;
+    }
+
+    /* ============================== ABOUT / FEATURE CARDS ============================== */
+    .section-about {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1.4;
+      text-align: center;
+      color: var(--color-white);
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-align: center;
+      color: var(--color-gray);
+    }
+
+    .feature-cards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .feature-card {
+      position: relative;
+      background: var(--color-card-bg);
+      border: none;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px 20px 24px;
+      height: 190px;
+      width: 100%;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      padding: 1px;
+      background: linear-gradient(109deg, #F40000 0%, #000 49.53%, #F40000 99.06%);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .feature-card__icon {
+      width: 40px;
+      height: 40px;
+      font-size: 36px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .feature-card__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-align: center;
+    }
+
+    .feature-card__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-white);
+      line-height: 1.6;
+    }
+
+    .feature-card__desc {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-white);
+      line-height: 1.6;
+    }
+
+    .feature-card__note {
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--color-gray);
+    }
+
+    .card-connector {
+      width: 1px;
+      height: 12px;
+      background: repeating-linear-gradient(
+        to bottom,
+        #CC0000 0px, #CC0000 1px,
+        transparent 1px, transparent 5px
+      );
+    }
+
+    /* ============================== REWARDS ============================== */
+    .section-rewards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .reward-cards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .reward-card {
+      position: relative;
+      border-radius: 11px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 22px;
+      text-align: center;
+      width: 225px;
+    }
+
+    .reward-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 11px;
+      padding: 1px;
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .reward-card--basic {
+      background: var(--color-card-bg-alt);
+      border: none;
+      height: 146px;
+    }
+
+    .reward-card--basic::before {
+      background: linear-gradient(to bottom, #FFD79C, #FF9800);
+    }
+
+    .reward-card--basic .reward-card__title {
+      font-size: 20px;
+      font-weight: 800;
+      background: linear-gradient(to left, var(--color-orange), #ffd79c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.6;
+    }
+
+    .reward-card--premium {
+      background: var(--color-card-bg-alt);
+      border: none;
+      height: 202px;
+      box-shadow: 0 0 22px rgba(255, 103, 103, 0.45);
       overflow: hidden;
     }
 
-    .section--alt { background-color: var(--color-bg-section); }
+    .reward-card--premium::before {
+      background: linear-gradient(to bottom, #F10000, #8B0000);
+    }
 
-    .section__title {
+    .reward-card--premium .reward-card__title {
+      font-size: 20px;
+      font-weight: 800;
+      background: linear-gradient(to right, #ff4f4f, var(--color-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.6;
+    }
+
+    .reward-card__desc {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--color-white);
+      line-height: 1.4;
+    }
+
+    .reward-card__note {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--color-gray);
+      line-height: 1.6;
+    }
+
+    .reward-separator {
+      font-size: 40px;
+      font-weight: 300;
+      color: #838383;
+      line-height: 1;
+    }
+
+    /* ============================== STEPS ============================== */
+    .section-steps {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 29px;
+      position: relative;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .step-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 44px;
+      left: 16px;
+      width: 0;
+      height: calc(100% + 9px);
+      border-left: 1px dashed rgba(241, 0, 0, 0.4);
+    }
+
+    .step-item__number {
+      flex-shrink: 0;
+      width: 33px;
+      height: 33px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-red-deep);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-red-deep);
+      line-height: 1.6;
       text-align: center;
-      margin-bottom: var(--space-12);
+      position: relative;
+      z-index: 2;
+      background: var(--color-bg);
     }
 
-    .section__title h2 { margin-bottom: var(--space-4); }
+    .step-item__content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      justify-content: center;
+    }
 
-    .section__title p {
-      color: var(--color-text-secondary);
-      max-width: 600px;
+    .step-item__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-red-deep);
+      line-height: 1.6;
+    }
+
+    .step-item__desc {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-gray);
+      line-height: 1.6;
+    }
+
+    /* ============================== REGISTRATION ============================== */
+    .section-registration {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .reg-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+    }
+
+    .form-group__label-row {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .form-group__label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-white);
+      line-height: 1.6;
+    }
+
+    .form-group__required {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-red-deep);
+    }
+
+    .form-group__input {
+      width: 100%;
+      height: 52px;
+      padding: 12px;
+      background: transparent;
+      border: 1px solid var(--color-gray-border);
+      border-radius: 10px;
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.2;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group__input::placeholder {
+      color: var(--color-gray);
+    }
+
+    .form-group__input:focus {
+      outline: none;
+      border-color: var(--color-red);
+    }
+
+    .form-group__error {
+      display: none;
+      font-size: 12px;
+      color: var(--color-red);
+      padding-left: 4px;
+      margin-top: 2px;
+    }
+
+    .form-group--error .form-group__error { display: block; }
+    .form-group--error .form-group__input { border-color: var(--color-red); }
+
+    .reg-submit-btn {
+      width: 100%;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 44px;
+      border: none;
+      border-radius: 10px;
+      background: var(--color-red);
+      color: var(--color-white);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.4;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .reg-submit-btn:hover {
+      background: #d50000;
+      box-shadow: 0 4px 16px rgba(244, 0, 0, 0.4);
+    }
+
+    .reg-submit-btn:active {
+      transform: scale(0.98);
+    }
+
+    .reg-submit-btn:disabled {
+      background: #333;
+      color: #666;
+      cursor: not-allowed;
+    }
+
+    /* ============================== SUCCESS POPUP ============================== */
+    .success-popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .success-popup-overlay.is-active {
+      display: flex;
+    }
+
+    .success-popup {
+      background: #202020;
+      border-radius: 20px;
+      padding: 28px 24px;
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      animation: popupScaleIn 0.3s var(--ease-out-expo) both;
+    }
+
+    @keyframes popupScaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .success-popup__icon {
+      font-size: 40px;
+      line-height: 1;
+    }
+
+    .success-popup__text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+      line-height: 1.6;
+    }
+
+    .success-popup__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-white);
+    }
+
+    .success-popup__message {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-gray);
+    }
+
+    .success-popup__btn {
+      width: 100%;
+      height: 52px;
+      background: var(--color-red);
+      border: none;
+      border-radius: 10px;
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    /* ============================== FOOTER ============================== */
+    .footer {
+      border-top: 1px solid #222;
+      padding: 40px 24px 32px;
+      max-width: 480px;
       margin: 0 auto;
-      font-size: 1.125rem;
+      text-align: center;
     }
 
-    @media (max-width: 1023px) {
-      .section { padding: var(--section-padding-tablet); }
+    .footer__notice {
+      font-size: 11px;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 16px;
     }
 
-    @media (max-width: 767px) {
-      .section { padding: var(--section-padding-mobile); }
-      h1 { font-size: 2.25rem; }
-      h2 { font-size: 1.75rem; }
-      h3 { font-size: 1.25rem; }
-      h4 { font-size: 1.125rem; }
-      .section__title p { font-size: 1rem; }
+    .footer__brand {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: #555;
+      letter-spacing: 0.05em;
     }
 
-    @media (min-width: 768px) and (max-width: 1023px) {
-      h1 { font-size: 2.75rem; }
-      h2 { font-size: 2rem; }
-      h3 { font-size: 1.375rem; }
+    /* ============================== FLOATING CTA ============================== */
+    .floating-cta {
+      position: fixed;
+      bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 1000;
+      pointer-events: none;
+      transition: opacity 0.3s var(--ease-out);
     }
 
-    /* === GRID === */
-    .grid--2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-6);
+    body.modal-open .floating-cta,
+    .floating-cta.is-hidden {
+      opacity: 0;
+      pointer-events: none;
     }
 
-    .grid--3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-6);
-    }
-
-    @media (max-width: 1023px) {
-      .grid--3 { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 767px) {
-      .grid--2, .grid--3 { grid-template-columns: 1fr; }
-    }
-
-    /* === BUTTONS === */
-    .btn {
+    .floating-cta__btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: var(--space-2);
-      padding: 16px 40px;
+      padding: 12px 44px;
       border: none;
-      border-radius: var(--radius-full);
-      font-family: var(--font-primary);
-      font-size: 1.125rem;
-      font-weight: 700;
-      letter-spacing: var(--letter-spacing-wide);
-      cursor: pointer;
-      transition: all 0.3s var(--ease-out);
-      position: relative;
-      overflow: hidden;
-      text-decoration: none;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, #c90200, #3e0000);
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.4;
       white-space: nowrap;
-      min-height: 52px;
+      cursor: pointer;
+      pointer-events: auto;
+      box-shadow: 0 8px 32px rgba(201, 2, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.5);
+      animation: ctaPulse 2.5s ease-in-out infinite;
     }
 
-    .btn--primary {
-      background: var(--gradient-button);
-      color: var(--color-text-primary);
-      box-shadow: 0 4px 16px rgba(255, 45, 45, 0.35);
-    }
-
-    .btn--primary:hover {
-      background: var(--gradient-button-hover);
-      box-shadow: 0 6px 24px rgba(255, 45, 45, 0.5), 0 0 40px rgba(255, 45, 45, 0.2);
-      transform: translateY(-2px);
-    }
-
-    .btn--primary:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 8px rgba(255, 45, 45, 0.3);
-    }
-
-    .btn--primary::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .btn--primary:hover::after { left: 100%; }
-
-    .btn--lg {
-      padding: 20px 56px;
-      font-size: 1.25rem;
-      min-height: 60px;
-    }
-
-    .btn:disabled {
-      background: var(--color-gray-700);
-      color: var(--color-text-disabled);
-      cursor: not-allowed;
-      box-shadow: none;
-      transform: none;
-    }
-
-    .btn:disabled:hover {
-      transform: none;
-      box-shadow: none;
-    }
-
-    .btn:disabled::after { display: none; }
-
-    @media (max-width: 767px) {
-      .btn { width: 100%; padding: 16px 32px; }
-      .btn--lg { padding: 18px 40px; font-size: 1.125rem; }
-    }
+    .floating-cta__btn:hover { animation: none; }
 
     @keyframes ctaPulse {
-      0%, 100% { box-shadow: 0 4px 16px rgba(255, 45, 45, 0.35); }
-      50% { box-shadow: 0 4px 24px rgba(255, 45, 45, 0.55), 0 0 48px rgba(255, 45, 45, 0.2); }
+      0%, 100% { box-shadow: 0 8px 24px rgba(201, 2, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.4); }
+      50% { box-shadow: 0 8px 32px rgba(201, 2, 0, 0.7), 0 4px 16px rgba(0, 0, 0, 0.5); }
     }
 
-    .btn--pulse { animation: ctaPulse 2.5s ease-in-out infinite; }
-    .btn--pulse:hover { animation: none; }
-
-    /* === FLOATING CTA (Mobile) === */
-    .floating-cta {
-      display: none;
-    }
-
-    @media (max-width: 767px) {
-      .floating-cta {
-        display: block;
-        position: fixed;
-        bottom: calc(24px + env(safe-area-inset-bottom, 0px));
-        left: 50%;
-        z-index: 1000;
-        transform: translateX(-50%) translateY(120px);
-        transition: transform 0.3s var(--ease-out);
-      }
-
-      .floating-cta.is-visible {
-        transform: translateX(-50%) translateY(0);
-      }
-
-      .floating-cta .btn {
-        padding: 16px 40px;
-        font-size: 1rem;
-        border-radius: var(--radius-full);
-        box-shadow: 0 8px 32px rgba(255, 45, 45, 0.4), 0 4px 12px rgba(0, 0, 0, 0.5);
-      }
-    }
-
-    /* === BOTTOM SHEET MODAL === */
+    /* ============================== BOTTOM SHEET ============================== */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -491,10 +944,10 @@
       left: 0;
       right: 0;
       z-index: 2001;
-      background: var(--color-primary-800);
+      background: #1a1a1a;
       border-radius: 20px 20px 0 0;
-      padding: var(--space-4) var(--space-5) var(--space-6);
-      padding-bottom: calc(var(--space-6) + env(safe-area-inset-bottom, 0px));
+      padding: 16px 20px 24px;
+      padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
       transform: translateY(100%);
       transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
       max-height: 85vh;
@@ -502,29 +955,27 @@
       overscroll-behavior: contain;
     }
 
-    .bottom-sheet.is-active {
-      transform: translateY(0);
-    }
+    .bottom-sheet.is-active { transform: translateY(0); }
 
     .bottom-sheet__handle {
       width: 36px;
       height: 4px;
-      background: var(--color-gray-600);
+      background: #444;
       border-radius: 2px;
-      margin: 0 auto var(--space-5);
+      margin: 0 auto 20px;
     }
 
     .bottom-sheet__header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: var(--space-5);
+      margin-bottom: 20px;
     }
 
     .bottom-sheet__title {
-      font-size: 1.125rem;
+      font-size: 18px;
       font-weight: 700;
-      color: var(--color-text-primary);
+      color: var(--color-white);
     }
 
     .bottom-sheet__close {
@@ -533,57 +984,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--color-gray-800);
+      background: #333;
       border: none;
       border-radius: 50%;
-      color: var(--color-text-secondary);
-      font-size: 1.25rem;
+      color: #999;
+      font-size: 20px;
       cursor: pointer;
-      transition: background 0.2s ease;
     }
 
-    .bottom-sheet__close:hover {
-      background: var(--color-gray-700);
-    }
-
-    .bottom-sheet .form-group {
-      margin-bottom: var(--space-4);
-    }
-
-    .bottom-sheet .form-group__label {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--color-text-secondary);
-      margin-bottom: var(--space-2);
-      display: block;
-    }
-
-    .bottom-sheet .input {
-      width: 100%;
-      padding: 14px 16px;
-      background: var(--color-primary-900);
-      border: 1px solid var(--color-gray-700);
-      border-radius: var(--radius-md);
-      color: var(--color-text-primary);
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.2s ease;
-    }
-
-    .bottom-sheet .input:focus {
-      outline: none;
-      border-color: var(--color-accent-500);
-    }
-
-    .bottom-sheet .btn--primary {
-      width: 100%;
-      margin-top: var(--space-3);
-    }
-
-    .bottom-sheet .form-success {
-      text-align: center;
-      padding: var(--space-6);
-    }
+    .bottom-sheet .reg-form { gap: 16px; }
 
     body.modal-open {
       overflow: hidden;
@@ -591,671 +1000,16 @@
       width: 100%;
     }
 
-    /* === MID-PAGE CTA === */
-    .section-cta {
-      text-align: center;
-      margin-top: var(--space-9);
-    }
-
-    @media (max-width: 767px) {
-      .section-cta { display: none; }
-    }
-
-    /* === CARDS === */
-    .card {
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-gray-700);
-      border-radius: var(--radius-lg);
-      padding: var(--space-8);
-      transition: all 0.3s var(--ease-out);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card:hover {
-      background: var(--color-bg-card-hover);
-      border-color: var(--color-gray-600);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .card__icon {
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 45, 45, 0.1);
-      border-radius: var(--radius-md);
-      margin-bottom: var(--space-5);
-      font-size: 1.5rem;
-      color: var(--color-accent-500);
-    }
-
-    .card__title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--color-text-primary);
-      margin-bottom: var(--space-3);
-    }
-
-    .card__description {
-      font-size: 0.9375rem;
-      color: var(--color-text-secondary);
-      line-height: var(--line-height-relaxed);
-    }
-
-    .card--feature {
-      text-align: center;
-      padding: var(--space-9) var(--space-7);
-    }
-
-    .card--feature .card__icon {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto var(--space-6);
-      border-radius: var(--radius-lg);
-      font-size: 2rem;
-      background: rgba(255, 45, 45, 0.1);
-      border: 1px solid rgba(255, 45, 45, 0.2);
-    }
-
-    .card--reward {
-      padding: var(--space-9);
-      text-align: center;
-      border: 1px solid var(--color-gray-700);
-    }
-
-    .card--reward-basic { border-color: var(--color-gray-600); }
-
-    .card--reward-premium {
-      border-color: var(--color-accent-500);
-      box-shadow: 0 0 20px rgba(255, 45, 45, 0.15);
-      position: relative;
-    }
-
-    .card--reward-premium::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient-button);
-    }
-
-    .card--reward-premium:hover {
-      box-shadow: var(--shadow-glow-strong);
-      border-color: var(--color-accent-400);
-    }
-
-    .card__tier-label {
-      display: inline-block;
-      padding: 6px 16px;
-      border-radius: var(--radius-full);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: var(--letter-spacing-wide);
-      margin-bottom: var(--space-5);
-    }
-
-    .card__tier-label--basic {
-      background: var(--color-gray-800);
-      color: var(--color-text-secondary);
-    }
-
-    .card__tier-label--premium {
-      background: rgba(255, 45, 45, 0.15);
-      color: var(--color-accent-500);
-    }
-
-    .card__reward-value {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--color-text-primary);
-      margin: var(--space-5) 0;
-    }
-
-    .card__reward-condition {
-      font-size: 0.875rem;
-      color: var(--color-text-muted);
-    }
-
-    @keyframes borderGlow {
-      0%, 100% { border-color: var(--color-accent-600); box-shadow: 0 0 15px rgba(255, 45, 45, 0.15); }
-      50% { border-color: var(--color-accent-500); box-shadow: 0 0 30px rgba(255, 45, 45, 0.25); }
-    }
-
-    .border-glow-animated { animation: borderGlow 3s ease-in-out infinite; }
-
-    @media (max-width: 767px) {
-      .card { padding: var(--space-6); }
-      .card--reward { padding: var(--space-7); }
-    }
-
-    /* === STEPS === */
-    .steps {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 0;
-      position: relative;
-    }
-
-    .step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      flex: 1;
-      max-width: 240px;
-      position: relative;
-      padding: 0 var(--space-4);
-    }
-
-    .step__number {
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: var(--color-bg-card);
-      border: 2px solid var(--color-accent-500);
-      color: var(--color-accent-500);
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin-bottom: var(--space-5);
-      position: relative;
-      z-index: 2;
-      transition: all 0.3s ease;
-    }
-
-    .step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: calc(50% + 36px);
-      width: calc(100% - 72px);
-      height: 2px;
-      background: var(--color-gray-700);
-      z-index: 1;
-    }
-
-    .step:not(:last-child)::before {
-      content: '';
-      position: absolute;
-      top: 24px;
-      right: -8px;
-      width: 10px;
-      height: 10px;
-      border-top: 2px solid var(--color-accent-500);
-      border-right: 2px solid var(--color-accent-500);
-      transform: rotate(45deg);
-      z-index: 2;
-      opacity: 0.6;
-    }
-
-    .step__title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--color-text-primary);
-      margin-bottom: var(--space-2);
-    }
-
-    .step__description {
-      font-size: 0.875rem;
-      color: var(--color-text-muted);
-      line-height: var(--line-height-relaxed);
-    }
-
-    @media (max-width: 767px) {
-      .steps {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-2);
-      }
-
-      .step {
-        flex-direction: row;
-        text-align: left;
-        max-width: 100%;
-        padding: var(--space-4) 0;
-        gap: var(--space-5);
-      }
-
-      .step__number {
-        width: 48px;
-        height: 48px;
-        min-width: 48px;
-        font-size: 1.125rem;
-        margin-bottom: 0;
-      }
-
-      .step__content { flex: 1; }
-
-      .step:not(:last-child)::after {
-        top: 52px;
-        left: 23px;
-        width: 2px;
-        height: calc(100% - 24px);
-      }
-
-      .step:not(:last-child)::before { display: none; }
-    }
-
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .steps { flex-wrap: wrap; gap: var(--space-8); }
-
-      .step {
-        flex-basis: calc(50% - var(--space-8));
-        max-width: calc(50% - var(--space-8));
-      }
-
-      .step:not(:last-child)::after,
-      .step:not(:last-child)::before { display: none; }
-    }
-
-    /* === FORM === */
-    .form {
-      max-width: 480px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-6);
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-    }
-
-    .form-group__label {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--color-text-secondary);
-    }
-
-    .form-group__label--required::after {
-      content: ' *';
-      color: var(--color-accent-500);
-    }
-
-    .input {
-      width: 100%;
-      padding: 16px 20px;
-      background: var(--color-bg-input);
-      border: 1px solid var(--color-gray-700);
-      border-radius: var(--radius-md);
-      color: var(--color-text-primary);
-      font-family: var(--font-primary);
-      font-size: 1rem;
-      transition: all 0.25s ease;
-      min-height: 52px;
-    }
-
-    .input::placeholder { color: var(--color-gray-500); }
-
-    .input:focus {
-      outline: none;
-      border-color: var(--color-accent-500);
-      box-shadow: 0 0 0 3px rgba(255, 45, 45, 0.15);
-      background: var(--color-primary-700);
-    }
-
-    .form-group__error {
-      display: none;
-      font-size: 0.8125rem;
-      color: var(--color-error);
-      padding-left: var(--space-1);
-    }
-
-    .form-group--error .form-group__error { display: block; }
-    .form-group--error .input { border-color: var(--color-error); }
-
-    .form .btn--primary {
-      width: 100%;
-      margin-top: var(--space-4);
-    }
-
-    /* === CONSENT CHECKBOX === */
-    .form-consent {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-3);
-      cursor: pointer;
-    }
-
-    .form-consent__checkbox {
-      width: 20px;
-      height: 20px;
-      min-width: 20px;
-      margin-top: 2px;
-      accent-color: var(--color-accent-500);
-      cursor: pointer;
-    }
-
-    .form-consent__label {
-      font-size: 0.875rem;
-      color: var(--color-text-secondary);
-      line-height: var(--line-height-relaxed);
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .form-consent__label strong {
-      color: var(--color-accent-400);
-      font-weight: 600;
-    }
-
-    .form-group--consent .form-group__error {
-      margin-left: 32px;
-    }
-
-    .form-success {
-      text-align: center;
-      padding: var(--space-9) var(--space-6);
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-success);
-      border-radius: var(--radius-lg);
-      display: none;
-    }
-
-    .form-success.is-active { display: block; }
-
-    .form-success__icon {
-      font-size: 3rem;
-      margin-bottom: var(--space-5);
-      color: var(--color-success);
-    }
-
-    .form-success__title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--color-text-primary);
-      margin-bottom: var(--space-3);
-    }
-
-    .form-success__message {
-      color: var(--color-text-secondary);
-      line-height: var(--line-height-relaxed);
-    }
-
-    /* === BADGE === */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-1);
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: var(--letter-spacing-wide);
-      white-space: nowrap;
-    }
-
-    .badge--accent {
-      background: rgba(255, 45, 45, 0.15);
-      color: var(--color-accent-400);
-      border: 1px solid rgba(255, 45, 45, 0.3);
-    }
-
-    /* === HERO SECTION === */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      position: relative;
-      text-align: center;
-      padding: 50vh var(--space-6) 6vh;
-      min-height: 100vh;
-      min-height: 100svh;
-      overflow: hidden;
-      background: #FF0000 url('design/bg_image.png') center top / cover no-repeat;
-    }
-
-    .hero__content {
-      position: relative;
-      z-index: 2;
-      max-width: 600px;
-      width: 100%;
-    }
-
-    @keyframes heroFadeInUp {
+    /* ============================== ANIMATIONS ============================== */
+    @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(24px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    .hero__title-main {
-      font-size: clamp(2.5rem, 9vw, 5.5rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: #FFFFFF;
-      margin-bottom: var(--space-5);
-      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0s both;
-    }
-
-    .hero__title-100 {
-      background: linear-gradient(180deg, #D8D8D8 0%, #B0B0B0 20%, #686868 55%, #484848 80%, #585858 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: #888888;
-    }
-
-    .hero__tagline {
-      font-size: clamp(0.875rem, 2.5vw, 1.125rem);
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: var(--space-7);
-      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.15s both;
-    }
-
-    .hero__cta {
-      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.3s both;
-    }
-
-    .hero__cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px 56px;
-      border: none;
-      border-radius: var(--radius-full);
-      font-family: var(--font-primary);
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      background: linear-gradient(to right, rgba(20, 5, 5, 0.8) 0%, rgba(180, 20, 20, 0.75) 100%);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s var(--ease-out);
-      white-space: nowrap;
-      min-height: 56px;
-    }
-
-    .hero__cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-      background: linear-gradient(to right, rgba(30, 10, 10, 0.85) 0%, rgba(200, 25, 25, 0.8) 100%);
-    }
-
-    @media (max-width: 767px) {
-      .hero {
-        padding: 48vh var(--space-4) 6vh;
-        background-size: 100% auto;
-        background-position: center 0;
-      }
-      .hero__title-main {
-        font-size: clamp(1.5rem, 7.8vw, 2.5rem);
-      }
-      .hero__cta-btn {
-        width: 100%;
-        padding: 16px 40px;
-      }
-    }
-
-    /* === ABOUT SECTION === */
-    .about { background: var(--color-bg-section); }
-
-    .about__intro {
-      max-width: 800px;
-      margin: 0 auto var(--space-12);
-      text-align: center;
-      color: var(--color-text-secondary);
-      font-size: 1rem;
-      line-height: var(--line-height-relaxed);
-    }
-
-    /* === SOCIAL PROOF BANNER === */
-    .social-proof {
-      background: var(--color-bg-base);
-      padding: var(--space-9) 0;
-      border-top: 1px solid var(--color-gray-800);
-      border-bottom: 1px solid var(--color-gray-800);
-    }
-
-    .social-proof__grid {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: var(--space-10);
-      flex-wrap: wrap;
-    }
-
-    .social-proof__item {
-      text-align: center;
-    }
-
-    .social-proof__number {
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--color-accent-500);
-      line-height: 1;
-      margin-bottom: var(--space-2);
-    }
-
-    .social-proof__label {
-      font-size: 0.875rem;
-      color: var(--color-text-muted);
-      font-weight: 500;
-    }
-
-    .social-proof__divider {
-      width: 1px;
-      height: 40px;
-      background: var(--color-gray-700);
-    }
-
-    @media (max-width: 767px) {
-      .social-proof { padding: var(--space-7) 0; }
-      .social-proof__grid { gap: var(--space-7); }
-      .social-proof__number { font-size: 1.5rem; }
-      .social-proof__divider { height: 32px; }
-    }
-
-    /* === REGISTRATION SECTION === */
-    .registration {
-      background: var(--color-bg-base);
-      position: relative;
-    }
-
-    .registration::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(255, 45, 45, 0.06) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .registration .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* === REWARDS SECTION === */
-    .rewards { background: var(--color-bg-section); }
-
-    .rewards .grid--2 {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* === FOOTER === */
-    .footer {
-      background: var(--color-bg-base);
-      border-top: 1px solid var(--color-gray-800);
-      padding: 60px 0 40px;
-    }
-
-    .footer__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-8);
-      margin-bottom: var(--space-9);
-    }
-
-    .footer__section-title {
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--color-text-primary);
-      margin-bottom: var(--space-4);
-      letter-spacing: var(--letter-spacing-wide);
-    }
-
-    .footer__text {
-      font-size: 0.875rem;
-      color: var(--color-text-muted);
-      line-height: var(--line-height-relaxed);
-    }
-
-    .footer__link {
-      color: var(--color-text-muted);
-      text-decoration: none;
-      transition: color var(--duration-fast) ease;
-    }
-
-    .footer__link:hover { color: var(--color-accent-400); }
-
-    .footer__copyright {
-      text-align: center;
-      padding-top: var(--space-8);
-      border-top: 1px solid var(--color-gray-800);
-      font-size: 0.75rem;
-      color: var(--color-text-muted);
-    }
-
-    .footer__notice {
-      text-align: center;
-      margin-top: var(--space-6);
-      font-size: 0.75rem;
-      color: var(--color-text-muted);
-      line-height: var(--line-height-relaxed);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    @media (max-width: 767px) {
-      .footer__grid { grid-template-columns: 1fr; gap: var(--space-8); }
-      .footer { padding: 40px 0 32px; }
-    }
-
-    /* === ANIMATIONS === */
     .animate-on-scroll {
       opacity: 0;
       transform: translateY(40px);
-      transition: opacity var(--duration-slower) var(--ease-out-expo),
-                  transform var(--duration-slower) var(--ease-out-expo);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
     }
 
     .animate-on-scroll.is-visible {
@@ -1268,50 +1022,73 @@
     .animate-delay-3 { transition-delay: 300ms; }
     .animate-delay-4 { transition-delay: 400ms; }
 
-    .animate-scale-in {
-      opacity: 0;
-      transform: scale(0.9);
-      transition: opacity var(--duration-slow) var(--ease-out),
-                  transform var(--duration-slow) var(--ease-spring);
+
+    /* ============================== DESKTOP RESPONSIVE ============================== */
+    @media (min-width: 768px) {
+      .hero {
+        aspect-ratio: auto;
+        height: 100vh;
+        height: 100svh;
+        max-height: none;
+      }
+
+      .hero__bg {
+        background-size: auto 100%;
+        background-position: center center;
+      }
+
+      .hero__content {
+        top: 40%;
+      }
+
+      .hero__title {
+        font-size: 48px;
+      }
+
+      .hero__title-100 {
+        height: 38px;
+      }
+
+      .hero__title-sub {
+        font-size: 48px;
+      }
+
+      .hero__tagline {
+        font-size: 16px;
+      }
+
+      .content {
+        max-width: 520px;
+        padding: 140px 40px;
+        gap: 140px;
+      }
+
+      .section-title { font-size: 30px; }
+
+      .feature-card { height: 200px; }
+
+      .footer {
+        max-width: 520px;
+      }
     }
 
-    .animate-scale-in.is-visible {
-      opacity: 1;
-      transform: scale(1);
+    @media (max-width: 400px) {
+      .content {
+        padding: 80px 24px;
+        gap: 80px;
+      }
+
+      .flame-wrapper {
+        width: 252px;
+        height: 297px;
+      }
+
+      .hero__content {
+        top: 42%;
+      }
     }
 
-    /* === SR-ONLY (Screen Reader Only) === */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    .sr-only:focus {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: auto;
-      height: auto;
-      padding: 16px 24px;
-      margin: 0;
-      overflow: visible;
-      clip: auto;
-      white-space: normal;
-      background: var(--color-accent-500);
-      color: var(--color-text-primary);
-      font-size: 1rem;
-      font-weight: 700;
-      z-index: 10000;
-      text-decoration: none;
-    }
-
+    /* ============================== REDUCED MOTION ============================== */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1319,12 +1096,12 @@
         transition-duration: 0.01ms !important;
       }
 
-      .animate-on-scroll, .animate-scale-in {
+      .animate-on-scroll {
         opacity: 1;
         transform: none;
       }
 
-      .hero__title-main, .hero__tagline, .hero__cta {
+      .hero__title, .hero__title-100, .hero__title-sub, .hero__tagline {
         animation: none;
         opacity: 1;
         transform: none;
@@ -1342,164 +1119,185 @@
     </div>
   </noscript>
 
-  <main id="main-content">
+  <main>
 
   <!-- ==================== HERO ==================== -->
   <section class="hero" id="hero" aria-label="Burning 100 Challenge 히어로">
+    <div class="hero__bg"></div>
     <div class="hero__content">
-      <h1 class="hero__title-main">BURNING <span class="hero__title-100">100</span><br>CHALLANGE</h1>
+      <div class="hero__title-group">
+        <div class="hero__title-row">
+          <span class="hero__title">BURNING</span>
+          <span class="hero__title-100">
+            <svg viewBox="0 0 95.7023 30.967" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="100">
+              <path d="M6.93751 4.70612e-05H0V7.66224H5.91235C7.52963 7.66224 8.07314 8.219 8.07314 9.8628V30.967H16.1021V9.40766C16.1021 3.25228 12.9338 4.70612e-05 6.93751 4.70612e-05Z" fill="url(#g100a)"/>
+              <path d="M45.9776 0H28.2317C21.7007 0 18.2452 3.6676 18.2452 10.6051V20.3618C18.2452 27.2993 21.6963 30.9669 28.2317 30.9669H45.9776C52.4555 30.9669 55.8801 27.2993 55.8801 20.3618V10.6051C55.8801 3.6676 52.4555 0 45.9776 0ZM47.8512 11.0956V19.8669C47.8512 22.7303 46.742 23.3047 44.948 23.3047H29.2613C27.4452 23.3047 26.3184 22.7303 26.3184 19.8669V11.0956C26.3184 8.21896 27.3966 7.65777 29.2613 7.65777H44.948C46.7376 7.65777 47.8512 8.23221 47.8512 11.0956Z" fill="url(#g100b)"/>
+              <path d="M85.7998 0H68.0539C61.5229 0 58.0674 3.6676 58.0674 10.6051V20.3618C58.0674 27.2993 61.5185 30.9669 68.0539 30.9669H85.7998C92.2777 30.9669 95.7023 27.2993 95.7023 20.3618V10.6051C95.7023 3.6676 92.2777 0 85.7998 0ZM87.6689 11.0956V19.8669C87.6689 22.7303 86.5598 23.3047 84.7658 23.3047H69.079C67.2629 23.3047 66.1361 22.7303 66.1361 19.8669V11.0956C66.1361 8.21896 67.2143 7.65777 69.079 7.65777H84.7658C86.5554 7.65777 87.6689 8.23221 87.6689 11.0956Z" fill="url(#g100c)"/>
+              <defs>
+                <linearGradient id="g100a" x1="8.05" y1="0" x2="8.05" y2="30.967" gradientUnits="userSpaceOnUse"><stop stop-color="#AB0200"/><stop offset="1" stop-color="#120000"/></linearGradient>
+                <linearGradient id="g100b" x1="37.06" y1="0" x2="37.06" y2="30.967" gradientUnits="userSpaceOnUse"><stop stop-color="#AB0200"/><stop offset="1" stop-color="#120000"/></linearGradient>
+                <linearGradient id="g100c" x1="76.88" y1="0" x2="76.88" y2="30.967" gradientUnits="userSpaceOnUse"><stop stop-color="#AB0200"/><stop offset="1" stop-color="#120000"/></linearGradient>
+              </defs>
+            </svg>
+          </span>
+        </div>
+        <span class="hero__title-sub">CHALLENGE</span>
+      </div>
       <p class="hero__tagline">매주 지방 100g 태우기에 도전하세요</p>
-      <div class="hero__cta">
-        <a href="#registration" class="hero__cta-btn" role="button">챌린지 참가하기</a>
-      </div>
     </div>
   </section>
 
-  <!-- ==================== ABOUT ==================== -->
-  <section class="section section--alt about" id="about" aria-label="챌린지 소개">
-    <div class="container">
-      <div class="section__title animate-on-scroll">
-        <h2>Burning 100 Challenge란?</h2>
-      </div>
+  <!-- ==================== CONTENT ==================== -->
+  <div class="content">
+    <div class="content__glow" aria-hidden="true"></div>
 
-      <p class="about__intro animate-on-scroll">
-        뉴마핏 심박계로 지방 연소량을 실시간 측정. 한 주 100g 달성하면 전원 보상. 매주 리셋, 매주 도전.
-      </p>
-
-      <div class="grid--3">
-        <article class="card card--feature animate-on-scroll animate-delay-1">
-          <div class="card__icon" aria-hidden="true">&#129658;</div>
-          <h3 class="card__title">무료 유산소 진단</h3>
-          <p class="card__description">신청만 하면 뉴마핏 유산소 진단을 무료로 받을 수 있습니다 (3만원 상당)</p>
-        </article>
-
-        <article class="card card--feature animate-on-scroll animate-delay-2">
-          <div class="card__icon" aria-hidden="true">&#128200;</div>
-          <h3 class="card__title">실시간 지방 연소 측정</h3>
-          <p class="card__description">심박계가 운동 중 지방 연소량을 실시간으로 기록합니다</p>
-        </article>
-
-        <article class="card card--feature animate-on-scroll animate-delay-3">
-          <div class="card__icon" aria-hidden="true">&#127942;</div>
-          <h3 class="card__title">매주 보상</h3>
-          <p class="card__description">매주 100g 달성 시 상품 지급. 추첨으로 고가 상품까지</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SOCIAL PROOF ==================== -->
-  <section class="social-proof" aria-label="숫자로 보는 챌린지">
-    <div class="container">
-      <div class="social-proof__grid animate-on-scroll">
-        <div class="social-proof__item">
-          <p class="social-proof__number">150+</p>
-          <p class="social-proof__label">누적 참가자</p>
+    <!-- 100G ILLUSTRATION -->
+    <section class="section-100g animate-on-scroll" aria-label="100g 목표">
+      <div class="flame-wrapper" aria-hidden="true">
+        <div class="flame-body"></div>
+        <div class="flame-sparks">
+          <div class="flame-spark"></div>
+          <div class="flame-spark"></div>
+          <div class="flame-spark"></div>
+          <div class="flame-spark"></div>
+          <div class="flame-spark"></div>
         </div>
-        <div class="social-proof__divider" aria-hidden="true"></div>
-        <div class="social-proof__item">
-          <p class="social-proof__number">78%</p>
-          <p class="social-proof__label">평균 달성률</p>
-        </div>
-        <div class="social-proof__divider" aria-hidden="true"></div>
-        <div class="social-proof__item">
-          <p class="social-proof__number">WEEKLY</p>
-          <p class="social-proof__label">매주 새로운 도전</p>
-        </div>
+        <svg class="beaker-outline" viewBox="0 0 248.357 244.229" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M246.434 0.0150897C247.364 -0.108863 248.218 0.544442 248.342 1.47407C248.466 2.40357 247.813 3.258 246.883 3.38228C245.83 3.52305 244.256 3.88074 242.794 4.49263C241.28 5.1267 240.176 5.91322 239.685 6.74458C239.515 7.03239 239.457 7.46609 239.452 8.37544L238.255 229.026C238.209 237.435 231.379 244.229 222.969 244.229H23.4936C15.0327 244.229 8.18134 237.356 8.20749 228.895L8.89499 8.44282C8.89794 7.49355 8.83713 7.03726 8.65475 6.73775C8.15057 5.90984 7.04098 5.13069 5.53561 4.50435C4.08149 3.8994 2.52032 3.54557 1.47409 3.40571C0.54442 3.28149 -0.108915 2.42716 0.0151041 1.49751C0.139422 0.567928 0.993703 -0.0855143 1.92331 0.0385272C3.21278 0.21085 5.06891 0.630693 6.8403 1.36763C8.56044 2.08328 10.4865 3.21452 11.5561 4.97114C12.3054 6.20159 12.2941 7.61155 12.2915 8.45357L11.604 228.905C11.5835 235.485 16.9129 240.831 23.4936 240.831H122.312C122.319 240.831 122.325 240.832 122.332 240.832H222.969C229.51 240.832 234.822 235.548 234.858 229.007L236.054 8.35689C236.059 7.55258 236.058 6.20605 236.759 5.01802C237.814 3.23057 239.754 2.08276 241.483 1.35884C243.265 0.612819 245.137 0.188449 246.434 0.0150897Z" fill="url(#beakerGrad)"/>
+          <defs>
+            <linearGradient id="beakerGrad" x1="124.179" y1="0" x2="124.179" y2="244.229" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFDB81"/>
+              <stop offset="1" stop-color="#F10000"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="flame-text">100g</span>
       </div>
-    </div>
-  </section>
-
-  <!-- ==================== REWARDS ==================== -->
-  <section class="section section--alt rewards" id="rewards" aria-label="보상 안내">
-    <div class="container">
-      <div class="section__title animate-on-scroll">
-        <h2>운동한 만큼, 보상도 확실하게.</h2>
+      <div class="section-100g__text">
+        <p class="text-gradient-gold">매주 지방 100g 태우기</p>
+        <p class="section-100g__subtitle">달성하고 보상을 받아보세요!</p>
       </div>
+    </section>
 
-      <div class="grid--2">
-        <article class="card card--reward card--reward-basic animate-on-scroll animate-delay-1">
-          <span class="card__tier-label card__tier-label--basic">기본 보상</span>
-          <h3 class="card__reward-value">100g 달성 = 전원 상품 지급</h3>
-          <p class="card__description">프로틴 음료, 스포츠 타월 등 달성자 전원에게 지급.</p>
-          <p class="card__reward-condition">조건: 주간 지방 연소 100g 달성</p>
+    <!-- ABOUT / FEATURE CARDS -->
+    <section class="section-about" aria-label="챌린지 소개">
+      <h2 class="section-title animate-on-scroll">BURNING 100&#x1F525;<br>챌린지란?</h2>
+      <p class="section-subtitle animate-on-scroll">뉴마핏 심박계로 지방 연소량을 실시간 측정합니다.<br>한 주 100g 달성하면 전원 보상.</p>
+
+      <div class="feature-cards">
+        <article class="feature-card animate-on-scroll animate-delay-1">
+          <div class="feature-card__icon" aria-hidden="true">&#x1F3C3;</div>
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">무료 뉴마핏 유산소 진단</h3>
+            <p class="feature-card__desc">신청만 하면 뉴마핏 유산소 진단을<br>무료로 받을 수 있습니다.</p>
+            <p class="feature-card__note">(3만원 상당)</p>
+          </div>
         </article>
 
-        <article class="card card--reward card--reward-premium border-glow-animated animate-on-scroll animate-delay-2">
-          <span class="card__tier-label card__tier-label--premium">PREMIUM</span>
-          <h3 class="card__reward-value">추첨으로 5만원 상당 프리미엄 상품</h3>
-          <p class="card__description">매주 달성자 중 추첨. 도전할수록 당첨 확률 UP.</p>
-          <p class="card__reward-condition">조건: 100g 달성자 중 추첨</p>
+        <div class="card-connector" aria-hidden="true"></div>
+
+        <article class="feature-card animate-on-scroll animate-delay-2">
+          <div class="feature-card__icon" aria-hidden="true">&#x1F4CB;</div>
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">실시간 지방 연소 측정</h3>
+            <p class="feature-card__desc">심박계가 운동 중 지방 연소량을<br>실시간으로 기록합니다.</p>
+          </div>
+        </article>
+
+        <div class="card-connector" aria-hidden="true"></div>
+
+        <article class="feature-card animate-on-scroll animate-delay-3">
+          <div class="feature-card__icon" aria-hidden="true">&#x1F3C6;</div>
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">매주 도전, 매주 보상.</h3>
+            <p class="feature-card__desc">매주 100g 달성 시 전원 상품 지급!<br>추첨으로 고가 상품까지.</p>
+            <p class="feature-card__note">(데이터는 매주 리셋됩니다.)</p>
+          </div>
         </article>
       </div>
+    </section>
 
-      <div class="section-cta animate-on-scroll">
-        <a href="#registration" class="btn btn--primary">지금 도전 신청하기</a>
-      </div>
-    </div>
-  </section>
+    <!-- REWARDS -->
+    <section class="section-rewards animate-on-scroll" aria-label="보상 안내">
+      <h2 class="section-title">운동한 만큼,<br>보상도 확실하게.</h2>
 
-  <!-- ==================== HOW IT WORKS ==================== -->
-  <section class="section" id="how-it-works" aria-label="참여 방법">
-    <div class="container">
-      <div class="section__title animate-on-scroll">
-        <h2>이렇게 참여하세요</h2>
-        <p>4단계로 간단하게 시작하세요</p>
-      </div>
-
-      <div class="steps">
-        <div class="step animate-on-scroll animate-delay-1">
-          <div class="step__number" aria-hidden="true">1</div>
-          <div class="step__content">
-            <h4 class="step__title">참가 신청</h4>
-            <p class="step__description">아래 폼에서 이름과 전화번호를 입력하면 신청 완료. 30초면 끝.</p>
+      <div class="reward-cards">
+        <div class="reward-card reward-card--basic">
+          <p class="reward-card__title">기본 보상</p>
+          <div>
+            <p class="reward-card__desc">100g 달성시 전원 상품 지급!</p>
+            <p class="reward-card__note">(3만원 상당)</p>
           </div>
         </div>
 
-        <div class="step animate-on-scroll animate-delay-2">
-          <div class="step__number" aria-hidden="true">2</div>
-          <div class="step__content">
-            <h4 class="step__title">무료 유산소 진단</h4>
-            <p class="step__description">에이블짐에서 연락드립니다. 뉴마핏 유산소 진단을 무료로 받으세요.</p>
-          </div>
-        </div>
+        <span class="reward-separator" aria-hidden="true">+</span>
 
-        <div class="step animate-on-scroll animate-delay-3">
-          <div class="step__number" aria-hidden="true">3</div>
-          <div class="step__content">
-            <h4 class="step__title">운동 시작</h4>
-            <p class="step__description">뉴마핏 앱 설치 후 심박계를 착용하고 유산소존에서 운동을 시작하세요.</p>
-          </div>
-        </div>
-
-        <div class="step animate-on-scroll animate-delay-4">
-          <div class="step__number" aria-hidden="true">4</div>
-          <div class="step__content">
-            <h4 class="step__title">보상 획득</h4>
-            <p class="step__description">지방 100g 달성 즉시 상품 수령. 추첨을 통해 프리미엄 상품의 기회까지.</p>
+        <div class="reward-card reward-card--premium">
+          <p class="reward-card__title">프리미엄 보상</p>
+          <div>
+            <p class="reward-card__desc">추첨으로 5만원 상당의<br>프리미엄 상품이!</p>
+            <p class="reward-card__note">(매주 달성자 중 추첨하며,<br>순위가 높을수록 당첨 확률이 커집니다.)</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== REGISTRATION ==================== -->
-  <section class="section registration" id="registration" aria-label="참가 신청">
-    <div class="container container--narrow">
-      <div class="section__title animate-on-scroll">
-        <h2>지금 신청하고, 이번 주부터 태우세요.</h2>
-        <p>이름과 전화번호만 입력하면 신청 완료. 에이블짐에서 빠르게 연락드리겠습니다.</p>
+    <!-- STEPS -->
+    <section class="section-steps animate-on-scroll" aria-label="참여 방법">
+      <h2 class="section-title" style="line-height:1.6">이렇게 참여하세요!</h2>
+
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-item__number">1</div>
+          <div class="step-item__content">
+            <h3 class="step-item__title">참가 신청</h3>
+            <p class="step-item__desc">아래 폼에서 이름과 전화번호를<br>입력하면 신청 완료.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-item__number">2</div>
+          <div class="step-item__content">
+            <h3 class="step-item__title">무료 유산소 진단</h3>
+            <p class="step-item__desc">에이블짐에서 연락드립니다.<br>뉴마핏 유산소 진단을 무료로 받으세요.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-item__number">3</div>
+          <div class="step-item__content">
+            <h3 class="step-item__title">운동 시작</h3>
+            <p class="step-item__desc">뉴마핏 앱 설치 후 심박계를 착용하고<br>유산소존에서 운동을 시작하세요.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-item__number">4</div>
+          <div class="step-item__content">
+            <h3 class="step-item__title">보상 획득</h3>
+            <p class="step-item__desc">지방 100g 달성 즉시 상품 수령.<br>추첨을 통해 프리미엄 상품의 기회까지.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <form class="form animate-on-scroll" id="registrationForm" novalidate>
+    <!-- REGISTRATION -->
+    <section class="section-registration" id="registration" aria-label="참가 신청">
+      <h2 class="section-title animate-on-scroll">지금 신청하고,<br>이번 주부터 태우세요.</h2>
+      <p class="section-subtitle animate-on-scroll">이름과 전화번호만 입력하면 신청 완료.<br>에이블짐에서 빠르게 연락드리겠습니다.</p>
+
+      <form class="reg-form animate-on-scroll" id="registrationForm" novalidate>
         <div class="form-group" id="nameGroup">
-          <label for="name" class="form-group__label form-group__label--required">이름</label>
+          <div class="form-group__label-row">
+            <label for="name" class="form-group__label">이름</label>
+            <span class="form-group__required">*필수입력</span>
+          </div>
           <input
             type="text"
             id="name"
             name="name"
-            class="input"
-            placeholder="이름을 입력하세요"
+            class="form-group__input"
+            placeholder="이름을 입력하세요."
             autocomplete="name"
             required
             minlength="2"
@@ -1509,12 +1307,15 @@
         </div>
 
         <div class="form-group" id="phoneGroup">
-          <label for="phone" class="form-group__label form-group__label--required">전화번호</label>
+          <div class="form-group__label-row">
+            <label for="phone" class="form-group__label">전화번호</label>
+            <span class="form-group__required">*필수입력</span>
+          </div>
           <input
             type="tel"
             id="phone"
             name="phone"
-            class="input"
+            class="form-group__input"
             placeholder="010-0000-0000"
             autocomplete="tel"
             required
@@ -1525,49 +1326,24 @@
           <span class="form-group__error" id="phoneError" role="alert">올바른 전화번호를 입력해주세요. (010-0000-0000)</span>
         </div>
 
-        <button type="submit" class="btn btn--primary" id="submitBtn">참가 신청하기</button>
+        <button type="submit" class="reg-submit-btn" id="submitBtn">참가 신청하기</button>
       </form>
 
-      <div class="form-success" id="formSuccess" aria-live="polite">
-        <div class="form-success__icon" aria-hidden="true">&#10004;&#65039;</div>
-        <h3 class="form-success__title">신청 완료! 도전이 시작됩니다.</h3>
-        <p class="form-success__message">에이블짐 교대역점에서 곧 연락드리겠습니다. 무료 유산소 진단을 받고, Burning 100 Challenge에 돌입하세요!</p>
-      </div>
-    </div>
-  </section>
+    </section>
+
+  </div>
 
   </main>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="footer" id="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <h4 class="footer__section-title">에이블짐 교대역점</h4>
-          <p class="footer__text">서울특별시 서초구 서초대로 (교대역 인근)</p>
-        </div>
-        <div>
-          <h4 class="footer__section-title">문의</h4>
-          <p class="footer__text">
-            전화: 추후 기재<br>
-            <a href="https://instagram.com/ablegym" class="footer__link" target="_blank" rel="noopener noreferrer" aria-label="에이블짐 인스타그램">Instagram @ablegym</a>
-          </p>
-        </div>
-        <div>
-          <h4 class="footer__section-title">운영 시간</h4>
-          <p class="footer__text">추후 기재</p>
-        </div>
-      </div>
-
-      <p class="footer__notice">Burning 100 Challenge는 에이블짐 교대역점 회원을 대상으로 매주 진행됩니다. 상품 및 이벤트 내용은 사정에 따라 변경될 수 있습니다.</p>
-
-      <p class="footer__copyright">&copy; 2026 에이블짐. All rights reserved.</p>
-    </div>
+  <footer class="footer" role="contentinfo">
+    <p class="footer__notice">Burning 100 Challenge는 에이블짐 교대역점 회원을 대상으로 매주 진행됩니다. 상품 및 이벤트 내용은 사정에 따라 변경될 수 있습니다.</p>
+    <p class="footer__brand">ABLE GYM x NEUMAFIT</p>
   </footer>
 
-  <!-- ==================== FLOATING CTA (Mobile) ==================== -->
-  <div class="floating-cta" id="floatingCta" aria-hidden="true">
-    <button class="btn btn--primary btn--pulse" id="floatingCtaBtn" type="button">지금 도전 신청하기</button>
+  <!-- ==================== FLOATING CTA ==================== -->
+  <div class="floating-cta" id="floatingCta">
+    <button class="floating-cta__btn" id="floatingCtaBtn" type="button">지금 챌린지 참가하기</button>
   </div>
 
   <!-- ==================== BOTTOM SHEET MODAL ==================== -->
@@ -1579,47 +1355,39 @@
       <button class="bottom-sheet__close" id="sheetCloseBtn" aria-label="닫기">&times;</button>
     </div>
 
-    <form class="form" id="sheetRegistrationForm" novalidate>
+    <form class="reg-form" id="sheetRegistrationForm" novalidate>
       <div class="form-group" id="sheetNameGroup">
-        <label for="sheetName" class="form-group__label">이름</label>
-        <input
-          type="text"
-          id="sheetName"
-          name="name"
-          class="input"
-          placeholder="이름을 입력하세요"
-          autocomplete="name"
-          required
-          minlength="2"
-          aria-describedby="sheetNameError"
-        >
+        <div class="form-group__label-row">
+          <label for="sheetName" class="form-group__label">이름</label>
+          <span class="form-group__required">*필수입력</span>
+        </div>
+        <input type="text" id="sheetName" name="name" class="form-group__input" placeholder="이름을 입력하세요." autocomplete="name" required minlength="2" aria-describedby="sheetNameError">
         <span class="form-group__error" id="sheetNameError" role="alert">이름은 2자 이상 입력해주세요.</span>
       </div>
 
       <div class="form-group" id="sheetPhoneGroup">
-        <label for="sheetPhone" class="form-group__label">전화번호</label>
-        <input
-          type="tel"
-          id="sheetPhone"
-          name="phone"
-          class="input"
-          placeholder="010-0000-0000"
-          autocomplete="tel"
-          required
-          inputmode="numeric"
-          maxlength="13"
-          aria-describedby="sheetPhoneError"
-        >
+        <div class="form-group__label-row">
+          <label for="sheetPhone" class="form-group__label">전화번호</label>
+          <span class="form-group__required">*필수입력</span>
+        </div>
+        <input type="tel" id="sheetPhone" name="phone" class="form-group__input" placeholder="010-0000-0000" autocomplete="tel" required inputmode="numeric" maxlength="13" aria-describedby="sheetPhoneError">
         <span class="form-group__error" id="sheetPhoneError" role="alert">올바른 전화번호를 입력해주세요. (010-0000-0000)</span>
       </div>
 
-      <button type="submit" class="btn btn--primary" id="sheetSubmitBtn">참가 신청하기</button>
+      <button type="submit" class="reg-submit-btn" id="sheetSubmitBtn">참가 신청하기</button>
     </form>
 
-    <div class="form-success" id="sheetFormSuccess" aria-live="polite">
-      <div class="form-success__icon" aria-hidden="true">&#10004;&#65039;</div>
-      <h3 class="form-success__title">신청 완료!</h3>
-      <p class="form-success__message">에이블짐 교대역점에서 곧 연락드리겠습니다.</p>
+  </div>
+
+  <!-- ==================== SUCCESS POPUP ==================== -->
+  <div class="success-popup-overlay" id="successPopupOverlay" aria-hidden="true">
+    <div class="success-popup" role="alertdialog" aria-modal="true" aria-label="신청 완료">
+      <div class="success-popup__icon" aria-hidden="true">&#10004;&#65039;</div>
+      <div class="success-popup__text">
+        <h3 class="success-popup__title">챌린지 참가 신청이 완료되었습니다!</h3>
+        <p class="success-popup__message">뉴마핏 유산소 진단 일정 관련하여 에이블짐에서 별도로 연락드릴 예정입니다.</p>
+      </div>
+      <button class="success-popup__btn" id="successPopupBtn" type="button">확인</button>
     </div>
   </div>
 
@@ -1643,9 +1411,23 @@
         });
       }, observerOptions);
 
-      document.querySelectorAll('.animate-on-scroll, .animate-fade-in, .animate-scale-in').forEach(function(el) {
+      document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
         observer.observe(el);
       });
+
+      /* === Hide Floating CTA when registration form is visible === */
+      var floatingCta = document.getElementById('floatingCta');
+      var regSection = document.getElementById('registration');
+      var regObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            floatingCta.classList.add('is-hidden');
+          } else {
+            floatingCta.classList.remove('is-hidden');
+          }
+        });
+      }, { threshold: 0.15 });
+      regObserver.observe(regSection);
 
       /* === Smooth Scroll for CTA === */
       document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
@@ -1657,6 +1439,25 @@
             targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
+      });
+
+      /* === Success Popup === */
+      var successPopupOverlay = document.getElementById('successPopupOverlay');
+      var successPopupBtn = document.getElementById('successPopupBtn');
+
+      function showSuccessPopup() {
+        successPopupOverlay.classList.add('is-active');
+        successPopupOverlay.setAttribute('aria-hidden', 'false');
+      }
+
+      function hideSuccessPopup() {
+        successPopupOverlay.classList.remove('is-active');
+        successPopupOverlay.setAttribute('aria-hidden', 'true');
+      }
+
+      successPopupBtn.addEventListener('click', hideSuccessPopup);
+      successPopupOverlay.addEventListener('click', function(e) {
+        if (e.target === successPopupOverlay) hideSuccessPopup();
       });
 
       /* === Shared Validation Functions === */
@@ -1733,33 +1534,12 @@
         submitBtn.textContent = '신청 중...';
 
         setTimeout(function() {
-          form.style.display = 'none';
-          var successEl = document.getElementById('formSuccess');
-          successEl.classList.add('is-active');
-          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          submitBtn.disabled = false;
+          submitBtn.textContent = '참가 신청하기';
+          form.reset();
+          showSuccessPopup();
         }, 600);
       });
-
-      /* === Floating CTA - Show/Hide on Scroll === */
-      var floatingCta = document.getElementById('floatingCta');
-      var heroSection = document.getElementById('hero');
-      var scrollY = 0;
-
-      function checkFloatingCta() {
-        if (window.innerWidth > 767) {
-          floatingCta.classList.remove('is-visible');
-          return;
-        }
-        var heroBottom = heroSection.getBoundingClientRect().bottom;
-        if (heroBottom < 0) {
-          floatingCta.classList.add('is-visible');
-        } else {
-          floatingCta.classList.remove('is-visible');
-        }
-      }
-
-      window.addEventListener('scroll', checkFloatingCta, { passive: true });
-      window.addEventListener('resize', checkFloatingCta, { passive: true });
 
       /* === Bottom Sheet Modal === */
       var modalOverlay = document.getElementById('modalOverlay');
@@ -1768,43 +1548,49 @@
       var sheetCloseBtn = document.getElementById('sheetCloseBtn');
       var savedScrollY = 0;
 
+      var isSheetOpen = false;
+
       function openSheet() {
+        if (isSheetOpen) return;
+        isSheetOpen = true;
         savedScrollY = window.scrollY;
         document.body.classList.add('modal-open');
         document.body.style.top = '-' + savedScrollY + 'px';
         modalOverlay.classList.add('is-active');
         modalOverlay.setAttribute('aria-hidden', 'false');
-        // Small delay for CSS transition
         requestAnimationFrame(function() {
           bottomSheet.classList.add('is-active');
         });
-        floatingCta.classList.remove('is-visible');
       }
 
       function closeSheet() {
+        if (!isSheetOpen) return;
+        isSheetOpen = false;
         bottomSheet.classList.remove('is-active');
         modalOverlay.classList.remove('is-active');
         modalOverlay.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('modal-open');
+        var scrollY = savedScrollY;
         document.body.style.top = '';
-        window.scrollTo(0, savedScrollY);
-        // Re-check floating CTA after close
-        setTimeout(checkFloatingCta, 350);
+        document.body.classList.remove('modal-open');
+        window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' });
       }
 
       floatingCtaBtn.addEventListener('click', openSheet);
       sheetCloseBtn.addEventListener('click', closeSheet);
       modalOverlay.addEventListener('click', closeSheet);
 
-      // Swipe down to close
       var touchStartY = 0;
+      var touchHandled = false;
       bottomSheet.addEventListener('touchstart', function(e) {
         touchStartY = e.touches[0].clientY;
+        touchHandled = false;
       }, { passive: true });
 
       bottomSheet.addEventListener('touchmove', function(e) {
+        if (touchHandled) return;
         var diff = e.touches[0].clientY - touchStartY;
         if (diff > 80) {
+          touchHandled = true;
           closeSheet();
         }
       }, { passive: true });
@@ -1842,9 +1628,11 @@
         sheetSubmitBtn.textContent = '신청 중...';
 
         setTimeout(function() {
-          sheetForm.style.display = 'none';
-          var successEl = document.getElementById('sheetFormSuccess');
-          successEl.style.display = 'block';
+          sheetSubmitBtn.disabled = false;
+          sheetSubmitBtn.textContent = '참가 신청하기';
+          sheetForm.reset();
+          closeSheet();
+          showSuccessPopup();
         }, 600);
       });
 
