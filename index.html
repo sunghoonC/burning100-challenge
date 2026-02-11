@@ -1006,33 +1006,39 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       position: relative;
       text-align: center;
-      padding: 100px var(--space-6) 80px;
+      padding: 0 var(--space-6) var(--space-9);
+      min-height: 100vh;
+      min-height: 100svh;
       overflow: hidden;
-      background: var(--color-bg-base);
+      background: #E52020;
     }
 
-    .hero__background {
+    .hero__photo {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(
-        ellipse at 50% 65%,
-        rgba(230, 57, 70, 0.18) 0%,
-        rgba(10, 10, 10, 0.95) 55%,
-        #0A0A0A 100%
-      );
-      z-index: 0;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 420px;
+      height: 65%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center top;
     }
 
     .hero__content {
       position: relative;
       z-index: 2;
-      max-width: 800px;
+      max-width: 600px;
       width: 100%;
     }
 
@@ -1042,21 +1048,28 @@
     }
 
     .hero__title-main {
-      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-size: clamp(2.5rem, 9vw, 5.5rem);
       font-weight: 900;
       line-height: 1.05;
       letter-spacing: -0.02em;
-      color: var(--color-text-primary);
-      text-shadow: 0 0 60px rgba(255, 45, 45, 0.3), 0 2px 4px rgba(0, 0, 0, 0.5);
+      color: #FFFFFF;
       margin-bottom: var(--space-5);
       animation: heroFadeInUp 0.7s var(--ease-out-expo) 0s both;
     }
 
+    .hero__title-100 {
+      background: linear-gradient(180deg, #C0C0C0 0%, #888888 40%, #555555 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: #888888;
+    }
+
     .hero__tagline {
-      font-size: clamp(0.9rem, 2.5vw, 1.125rem);
+      font-size: clamp(0.875rem, 2.5vw, 1.125rem);
       font-weight: 500;
-      color: var(--color-text-secondary);
-      margin-bottom: var(--space-7);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: var(--space-8);
       animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.15s both;
     }
 
@@ -1064,123 +1077,42 @@
       animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.3s both;
     }
 
-    /* Flame Visual */
-    .hero__flame-visual {
-      position: relative;
-      width: 240px;
-      height: 320px;
-      margin: var(--space-9) auto var(--space-7);
-      display: flex;
+    .hero__cta-btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      z-index: 2;
-      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.45s both;
-    }
-
-    .hero__flame-glow {
-      position: absolute;
-      width: 380px;
-      height: 380px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(255, 120, 50, 0.3) 0%, rgba(255, 60, 30, 0.12) 40%, transparent 70%);
-      animation: flameGlowPulse 3s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    .hero__flame-shape {
-      position: absolute;
-      width: 190px;
-      height: 260px;
-      border-radius: 45% 45% 50% 50% / 30% 30% 65% 65%;
-      background:
-        radial-gradient(ellipse at 50% 65%,
-          rgba(255, 160, 60, 0.85) 0%,
-          rgba(255, 100, 40, 0.7) 20%,
-          rgba(230, 57, 70, 0.6) 40%,
-          rgba(180, 30, 30, 0.4) 65%,
-          rgba(100, 10, 10, 0.15) 85%,
-          transparent 100%
-        );
-      box-shadow:
-        0 0 60px rgba(255, 100, 50, 0.3),
-        0 0 120px rgba(255, 60, 30, 0.15),
-        inset 0 -30px 60px rgba(255, 140, 60, 0.15);
-      animation: flameShapePulse 3s ease-in-out infinite;
-    }
-
-    .hero__flame-number {
-      position: relative;
-      z-index: 2;
-      font-size: clamp(3.5rem, 14vw, 5rem);
-      font-weight: 900;
-      color: #FFFFFF;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 255, 255, 0.1);
-      letter-spacing: 0.03em;
-    }
-
-    @keyframes flameGlowPulse {
-      0%, 100% {
-        opacity: 0.8;
-        transform: translate(-50%, -50%) scale(1);
-      }
-      50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.08);
-      }
-    }
-
-    @keyframes flameShapePulse {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 60px rgba(255, 100, 50, 0.3), 0 0 120px rgba(255, 60, 30, 0.15);
-      }
-      50% {
-        transform: scale(1.03);
-        box-shadow: 0 0 80px rgba(255, 100, 50, 0.4), 0 0 160px rgba(255, 60, 30, 0.2);
-      }
-    }
-
-    /* Bottom Text */
-    .hero__bottom-text {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      animation: heroFadeInUp 0.7s var(--ease-out-expo) 0.6s both;
-    }
-
-    .hero__bottom-title {
-      font-size: clamp(1.125rem, 3.5vw, 1.5rem);
+      padding: 18px 56px;
+      border: none;
+      border-radius: var(--radius-full);
+      font-family: var(--font-primary);
+      font-size: 1.125rem;
       font-weight: 700;
-      color: var(--color-text-primary);
-      margin-bottom: var(--space-2);
+      color: #FFFFFF;
+      background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(140, 15, 15, 0.8) 100%);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s var(--ease-out);
+      white-space: nowrap;
+      min-height: 56px;
     }
 
-    .hero__bottom-sub {
-      font-size: clamp(0.875rem, 2.5vw, 1rem);
-      color: var(--color-text-secondary);
+    .hero__cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(160, 20, 20, 0.85) 100%);
     }
 
     @media (max-width: 767px) {
       .hero {
-        padding: 80px var(--space-5) 60px;
+        padding: 0 var(--space-5) var(--space-8);
       }
       .hero__title-main {
-        font-size: clamp(1.75rem, 8vw, 2.75rem);
+        font-size: clamp(1.5rem, 7.5vw, 2.5rem);
       }
-      .hero__flame-visual {
-        width: 200px;
-        height: 270px;
-        margin: var(--space-8) auto var(--space-6);
-      }
-      .hero__flame-shape {
-        width: 160px;
-        height: 220px;
-      }
-      .hero__flame-glow {
-        width: 300px;
-        height: 300px;
+      .hero__cta-btn {
+        width: 100%;
+        padding: 16px 40px;
       }
     }
 
@@ -1409,8 +1341,7 @@
         transform: none;
       }
 
-      .hero__title-main, .hero__tagline, .hero__cta,
-      .hero__flame-visual, .hero__flame-glow, .hero__flame-shape, .hero__bottom-text {
+      .hero__title-main, .hero__tagline, .hero__cta {
         animation: none;
         opacity: 1;
         transform: none;
@@ -1432,25 +1363,16 @@
 
   <!-- ==================== HERO ==================== -->
   <section class="hero" id="hero" aria-label="Burning 100 Challenge 히어로">
-    <div class="hero__background" aria-hidden="true"></div>
+    <div class="hero__photo" aria-hidden="true">
+      <!-- 인물 사진 에셋 필요: <img src="images/hero-person.png" alt="" /> -->
+    </div>
 
     <div class="hero__content">
-      <h1 class="hero__title-main">BURNING 100<br>CHALLENGE</h1>
-      <p class="hero__tagline">매주 지방 100g 태워지면 도전하세요</p>
+      <h1 class="hero__title-main">BURNING <span class="hero__title-100">100</span><br>CHALLANGE</h1>
+      <p class="hero__tagline">매주 지방 100g 태우기에 도전하세요</p>
       <div class="hero__cta">
-        <a href="#registration" class="btn btn--primary btn--lg btn--pulse" role="button">챌린지 참가하기</a>
+        <a href="#registration" class="hero__cta-btn" role="button">챌린지 참가하기</a>
       </div>
-    </div>
-
-    <div class="hero__flame-visual" aria-hidden="true">
-      <div class="hero__flame-glow"></div>
-      <div class="hero__flame-shape"></div>
-      <span class="hero__flame-number">100G</span>
-    </div>
-
-    <div class="hero__bottom-text">
-      <p class="hero__bottom-title"><span class="text-accent">매주 지방 100g</span> 태우기</p>
-      <p class="hero__bottom-sub">달성하고 보상을 받아보세요!</p>
     </div>
   </section>
 
