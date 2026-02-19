@@ -1526,6 +1526,38 @@
         if (e.target === successPopupOverlay) hideSuccessPopup();
       });
 
+      /* === GraphQL API Config === */
+      var GRAPHQL_URL = 'https://fatmax-dev.api-neumafit.com/';
+      var PARTNER_BRANCH_ID = '691bef0a775bc46bef796f04';
+      var CHALLENGE_TEMPLATE_ID = '69964cef6c47eb9bc546cac3';
+
+      function createChallengeApplicant(userName, userPhone) {
+        var query = 'mutation CreateChallengeApplicant($input: CreateChallengeApplicantInput!) { createChallengeApplicant(input: $input) { ok error } }';
+        return fetch(GRAPHQL_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            query: query,
+            variables: {
+              input: {
+                userName: userName.trim(),
+                userPhone: userPhone.replace(/-/g, ''),
+                partnerBranchId: PARTNER_BRANCH_ID,
+                challengeTemplateId: CHALLENGE_TEMPLATE_ID
+              }
+            }
+          })
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(json) {
+          if (json.errors) throw new Error(json.errors[0].message);
+          if (!json.data.createChallengeApplicant.ok) {
+            throw new Error(json.data.createChallengeApplicant.error || '신청에 실패했습니다.');
+          }
+          return json.data.createChallengeApplicant;
+        });
+      }
+
       /* === Shared Validation Functions === */
       function validateName(value) {
         return value.trim().length >= 2;
@@ -1599,12 +1631,18 @@
         submitBtn.disabled = true;
         submitBtn.textContent = '신청 중...';
 
-        setTimeout(function() {
-          submitBtn.disabled = false;
-          submitBtn.textContent = '참가 신청하기';
-          form.reset();
-          showSuccessPopup();
-        }, 600);
+        createChallengeApplicant(nameInput.value, phoneInput.value)
+          .then(function() {
+            form.reset();
+            showSuccessPopup();
+          })
+          .catch(function(err) {
+            alert(err.message || '신청 중 오류가 발생했습니다.');
+          })
+          .finally(function() {
+            submitBtn.disabled = false;
+            submitBtn.textContent = '참가 신청하기';
+          });
       });
 
       /* === Bottom Sheet Modal === */
@@ -1703,13 +1741,19 @@
         sheetSubmitBtn.disabled = true;
         sheetSubmitBtn.textContent = '신청 중...';
 
-        setTimeout(function() {
-          sheetSubmitBtn.disabled = false;
-          sheetSubmitBtn.textContent = '참가 신청하기';
-          sheetForm.reset();
-          closeSheet();
-          showSuccessPopup();
-        }, 600);
+        createChallengeApplicant(sheetName.value, sheetPhone.value)
+          .then(function() {
+            sheetForm.reset();
+            closeSheet();
+            showSuccessPopup();
+          })
+          .catch(function(err) {
+            alert(err.message || '신청 중 오류가 발생했습니다.');
+          })
+          .finally(function() {
+            sheetSubmitBtn.disabled = false;
+            sheetSubmitBtn.textContent = '참가 신청하기';
+          });
       });
 
     })();
